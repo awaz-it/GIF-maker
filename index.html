@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAZ GIF Maker Pro</title>
+  <link rel="stylesheet" href="new-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="GIF Maker Pro Logo" class="logo">
+    <div class="dark-mode-toggle">
+      <span class="sun-icon">☀️</span>
+      <input type="checkbox" id="darkModeToggle">
+      <span class="moon-icon">🌙</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="fade-in">
+      <h1 class="title">GIF Maker Pro</h1>
+      <p class="subtitle">Create stunning animated GIFs in seconds</p>
+
+      <section id="upload" class="card">
+        <div id="dropArea">
+          <i class="fas fa-cloud-upload-alt fa-3x"></i>
+          <h3>Drop your images here</h3>
+          <p class="hint">or click to browse files</p>
+          <p class="supported-formats">Supports PNG, JPG, JPEG</p>
+          <input id="fileInput" type="file" accept="image/*" multiple style="display: none;">
+        </div>
+        <p class="drag-hint"><i class="fas fa-arrows-alt"></i> Drag thumbnails to reorder images</p>
+        <div id="preview" class="preview-grid fade-in"></div>
+      </section>
+
+      <section id="controls" class="card">
+        <div class="control-grid">
+          <div class="control-group">
+            <label for="delay">
+              <i class="fas fa-clock"></i> Frame Delay (ms)
+            </label>
+            <input id="delay" type="number" value="200" class="input-control" min="50" max="5000">
+          </div>
+
+          <div class="control-group">
+            <label for="gifText">
+              <i class="fas fa-font"></i> Text Overlay
+            </label>
+            <input id="gifText" type="text" placeholder="Add text to your GIF" class="input-control">
+          </div>
+
+          <div class="control-group">
+            <label for="textColor">
+              <i class="fas fa-palette"></i> Text Color
+            </label>
+            <input id="textColor" type="color" value="#FF0000" class="color-picker">
+          </div>
+
+          <div class="control-group">
+            <label for="fontSize">
+              <i class="fas fa-text-height"></i> Font Size
+            </label>
+            <select id="fontSize" class="select-control">
+              <option value="24">Small (24px)</option>
+              <option value="36">Medium (36px)</option>
+              <option value="48" selected>Large (48px)</option>
+              <option value="64">XL (64px)</option>
+              <option value="72">XXL (72px)</option>
+              <option value="96">Huge (96px)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="textPosition">
+              <i class="fas fa-arrows-alt-v"></i> Text Position
+            </label>
+            <select id="textPosition" class="select-control">
+              <option value="top">Top</option>
+              <option value="center">Center</option>
+              <option value="bottom">Bottom</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="previewBtn" class="secondary-button">
+            <i class="fas fa-eye"></i> Preview
+          </button>
+          <button id="createBtn" class="primary-button">
+            <i class="fas fa-magic"></i> Create GIF
+          </button>
+        </div>
+      </section>
+
+      <section id="previewArea" class="card fade-in">
+        <h2><i class="fas fa-play-circle"></i> Preview</h2>
+        <div id="preview-container" class="preview-container"></div>
+        <a id="downloadLink" class="download-button" style="display:none;">
+          <i class="fas fa-download"></i> Download GIF
+        </a>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gifshot@0.3.2/build/gifshot.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
